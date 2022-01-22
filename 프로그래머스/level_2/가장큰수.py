@@ -16,7 +16,7 @@
 # -> 1. 과 같은 문제 발생  ex) 12, 121
 
 # 4. 인터넷에서 찾은 방법2 : 원소들을 4자리로 만들때 0을 붙히는게 아니라 그 숫자를 반복해서 4자리 숫자로 생성
-
+ 
 def solution(numbers):
     answer = ''
     
@@ -38,6 +38,20 @@ def solution(numbers):
     return answer
 
 
+# 굉장히 깔끔한 풀이
+# 나와 다른 점 : map을 써서 코드 길이를 줄임
+
+# lambda x : x*3 은 왜 그렇게 되는지 아직 파악중 
+# str인 숫자는 크기를 비교하면 전체를 int로 변환후 숫자 크기를 비교하는게 아니라
+# 맨 앞부터 숫자를 1개씩 비교해서 차이가 나는 시점에서의 대소를 비교
+# 따라서 "33" > "303030" 이 됨
+
+def solution(numbers):
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x: x*3, reverse=True)
+
+    return str(int(''.join(numbers)))
 
 print(solution([6, 10, 2])) # 6210
 print(solution([3, 30, 34, 5, 9])) # 9534330
+
