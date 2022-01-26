@@ -2,6 +2,7 @@
 # 연산을 한 값을 다시 리스트에 넣어주는 문제
 # 처음에는 그냥 sort를 사용해서 했는데 이러면 시간초과가 걸림
 # 항상 가장 작은 값을 반환해주는 heap을 써야함
+# -> heap을 queue로 구현하는것을 못하겠으면 heapq 라이브러리를 알고있자
 
 import heapq
 def solution(scoville, K):
